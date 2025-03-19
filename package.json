@@ -1,0 +1,90 @@
+{
+  "name": "dualcheck",
+  "displayName": "Dual Check",
+  "description": "One-click check-in/out for Zoho People and Basecamp",
+  "version": "0.1.0",
+  "publisher": "himanshurank",
+  "icon": "images/icon.png",
+  "engines": {
+    "vscode": "^1.60.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "zoho-basecamp.checkIn",
+        "title": "Check In (Zoho & Basecamp)"
+      },
+      {
+        "command": "zoho-basecamp.checkOut",
+        "title": "Check Out (Zoho & Basecamp)"
+      }
+    ],
+    "configuration": {
+      "title": "Zoho & Basecamp Check-in",
+      "properties": {
+        "zoho-basecamp.zohoToken": {
+          "type": "string",
+          "description": "OAuth token for Zoho People"
+        },
+        "zoho-basecamp.zohoEmail": {
+          "type": "string",
+          "description": "Your email address for Zoho People"
+        },
+        "zoho-basecamp.basecampToken": {
+          "type": "string",
+          "description": "Access token for Basecamp"
+        },
+        "zoho-basecamp.basecampAccountId": {
+          "type": "string",
+          "description": "Basecamp account ID"
+        },
+        "zoho-basecamp.basecampProjectId": {
+          "type": "string",
+          "description": "Basecamp project ID"
+        },
+        "zoho-basecamp.basecampMessageBoardId": {
+          "type": "string",
+          "description": "Basecamp message board ID"
+        },
+        "zoho-basecamp.checkInMessage": {
+          "type": "string",
+          "default": "I've started working for the day.",
+          "description": "Message to post when checking in"
+        },
+        "zoho-basecamp.checkOutMessage": {
+          "type": "string",
+          "default": "I'm done for the day.",
+          "description": "Message to post when checking out"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "lint": "eslint src --ext ts"
+  },
+  "devDependencies": {
+    "@types/node": "^16.11.7",
+    "@types/vscode": "^1.60.0",
+    "@typescript-eslint/eslint-plugin": "^5.30.0",
+    "@typescript-eslint/parser": "^5.30.0",
+    "eslint": "^8.13.0",
+    "typescript": "^4.7.2"
+  },
+  "dependencies": {
+    "axios": "^0.27.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/zoho-basecamp-checkin.git"
+  }
+}
